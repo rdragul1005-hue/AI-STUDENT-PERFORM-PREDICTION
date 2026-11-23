@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}Dashboard · Student Performance Prediction{% endblock %}
+{% block content %}
+<section class="page-shell">
+  <div class="dashboard-hero">
+    <div><span class="eyebrow">YOUR LEARNING SPACE <span class="eyebrow-line"></span></span><h1>Good to see you,<br><em>{{ student['name'] }}.</em></h1><p>Choose a path and keep your momentum going.</p></div>
+    <div class="student-card"><div class="student-avatar">{{ student['name'][0]|upper }}</div><div><span class="card-label">STUDENT</span><strong>{{ student['name'] }}</strong><span class="student-reg">{{ student['register_number'] }}</span></div><div class="student-time"><span class="card-label">SCREEN TIME</span><strong data-screen-time>{{ student['screen_seconds']|duration }}</strong><span class="student-reg">this learning journey</span></div></div>
+  </div>
+  <div class="section-heading"><div><span class="eyebrow">PICK UP A NEW SKILL</span><h2>Your learning paths</h2></div><span class="section-count">05 COURSES</span></div>
+  <div class="course-grid">
+    {% for slug, course in courses.items() %}
+    {% set seconds = study.get(slug, 0) %}
+    <article class="course-card">
+      <div class="course-card-top"><span class="course-icon icon-{{ course.color }}">{{ course.icon }}</span><span class="course-number">0{{ loop.index }}</span></div>
+      <h3>{{ course.name }}</h3><p>{{ course.description }}</p>
+      <div class="course-progress-line"><span style="width: {{ [seconds / 300 * 100, 100]|min }}%"></span></div>
+      <div class="course-meta"><span>{{ seconds|duration }} studied</span>{% if slug in passed %}<span class="status-pill status-done">COMPLETED</span>{% elif seconds >= minimum_study %}<span class="status-pill status-ready">QUIZ READY</span>{% else %}<span>{{ course.lessons|length }} lessons</span>{% endif %}</div>
+      <a class="course-link" href="{{ url_for('first_lesson', language=slug) }}">Continue learning <span aria-hidden="true">↗</span></a>
+    </article>
+    {% endfor %}
+  </div>
+  <section class="dashboard-bottom"><div><span class="eyebrow">YOUR PROGRESS, AT A GLANCE</span><h2>Every minute<br>moves you forward.</h2><p>Time spent learning and your quiz results come together in a personal report.</p><a class="button button-outline" href="{{ url_for('report') }}">View performance report <span aria-hidden="true">↗</span></a></div><div class="progress-stat"><span class="stat-big">{{ passed|length }}<small>/ 5</small></span><span class="stat-caption">COURSES COMPLETED</span><div class="stat-bar"><span style="width: {{ passed|length * 20 }}%"></span></div><span class="stat-small">Pass a quiz with 7 or more marks to complete a course.</span></div></section>
+</section>
+{% endblock %}

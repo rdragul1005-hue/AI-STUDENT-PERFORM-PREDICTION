@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}{{ course.name }} quiz · Student Performance Prediction{% endblock %}
+{% block content %}
+<section class="page-shell quiz-shell">
+  <a class="back-link" href="{{ url_for('lesson', language=language, page=5) }}">← Back to {{ course.short }} lessons</a>
+  <div class="quiz-heading"><span class="eyebrow">KNOWLEDGE CHECK <span class="eyebrow-line"></span> 10 QUESTIONS</span><h1>{{ course.name }}<br><em>quick quiz.</em></h1><p>Choose one answer for each question. Score 7/10 or higher to complete this course.</p></div>
+  {% if result %}<div class="result-banner {{ 'result-pass' if result.passed else 'result-retry' }}"><span class="result-score">{{ result.score }}<small>/10</small></span><div><strong>{{ "Course completed — brilliant work!" if result.passed else "Not quite there yet — give it another go." }}</strong><p>{{ "You passed this course. Your report has been updated." if result.passed else "You need 7 correct answers to pass. Review the lessons and retake the quiz." }}</p></div><span class="result-mark">{{ "✓" if result.passed else "↻" }}</span></div>{% endif %}
+  <form method="post" action="{{ url_for('submit_quiz', language=language) }}" class="quiz-form">
+    {% for question in course.quiz %}
+    {% set question_index = loop.index0 %}<fieldset class="question-card"><legend><span class="question-number">Q{{ "%02d"|format(loop.index) }}</span>{{ question[0] }}</legend><div class="answer-grid">{% for option in question[1] %}<label class="answer-option"><input type="radio" name="answer_{{ question_index }}" value="{{ loop.index0 }}" required><span class="answer-letter">{{ ["A", "B", "C", "D"][loop.index0] }}</span><span>{{ option }}</span></label>{% endfor %}</div></fieldset>
+    {% endfor %}
+    <div class="quiz-submit"><span>PASS MARK <strong>07 / 10</strong></span><button class="button button-dark button-large" type="submit">{{ "Retake quiz" if result and not result.passed else "Submit answers" }} <span aria-hidden="true">→</span></button></div>
+  </form>
+</section>
+{% endblock %}

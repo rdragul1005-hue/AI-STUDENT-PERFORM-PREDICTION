@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}Welcome · Student Performance Prediction{% endblock %}
+{% block content %}
+<section class="welcome-shell">
+  <div class="welcome-top"><div class="college-seal">M</div><div><span class="eyebrow">MUTHAYAMMAL ENGINEERING COLLEGE</span><span class="college-caption">Autonomous · Rasipuram</span></div><span class="welcome-year">LEARN · PRACTICE · GROW</span></div>
+  <div class="welcome-grid">
+    <div class="welcome-copy">
+      <div class="eyebrow"><span class="eyebrow-line"></span> STUDENT PERFORMANCE PREDICTION</div>
+      <h1>Small steps.<br><em>Remarkable</em><br>progress.</h1>
+      <p class="welcome-description">A thoughtful space to build your programming skills, one lesson at a time. Learn at your pace and see how far you've come.</p>
+      <a class="button button-dark button-large" href="{{ url_for('login') }}">Start learning <span aria-hidden="true">↗</span></a>
+      <div class="welcome-note"><span class="note-icon">✳</span> Five learning paths · One clear view of your progress</div>
+    </div>
+    <div class="welcome-art">
+      <img class="campus-illustration" src="{{ url_for('static', filename='campus.svg') }}" alt="Illustration of the Muthayammal Engineering College campus">
+    </div>
+  </div>
+  <footer class="welcome-footer"><span>STUDENT PERFORMANCE PREDICTION</span><span>BUILT FOR CURIOUS MINDS <b>✳</b></span></footer>
+</section>
+{% endblock %}

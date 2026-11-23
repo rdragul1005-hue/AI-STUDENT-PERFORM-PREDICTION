@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Student sign in · Student Performance Prediction{% endblock %}
+{% block content %}
+<section class="login-layout">
+  <div class="login-aside"><a class="brand brand-on-dark" href="{{ url_for('welcome') }}"><span class="brand-mark">SP</span><span>Student<span class="brand-light">/lab</span></span></a><div class="login-aside-copy"><span class="eyebrow eyebrow-light">YOUR NEXT CHAPTER</span><h1>Show up.<br>Learn a little.<br><em>Keep going.</em></h1><p>Your progress is built one focused session at a time.</p></div><span class="aside-foot">MUTHAYAMMAL ENGINEERING COLLEGE</span></div>
+  <div class="login-main"><div class="login-form-wrap"><span class="eyebrow">STUDENT PORTAL</span><h2>Welcome in.</h2><p class="muted">Enter your details to open your learning dashboard.</p>
+    <form method="post" class="form-stack">
+      <label for="name">Your name</label><input id="name" name="name" type="text" autocomplete="name" placeholder="e.g. Ananya Kumar" maxlength="80" required>
+      <label for="register_number">Register number</label><input id="register_number" name="register_number" type="text" autocomplete="off" placeholder="e.g. 24CSE042" maxlength="40" required>
+      <button class="button button-dark button-full" type="submit">Open my dashboard <span aria-hidden="true">→</span></button>
+    </form>
+    <div class="privacy-note"><span>◈</span> Your learning activity is saved to your personal report.</div>
+    <a class="back-link" href="{{ url_for('welcome') }}">← Back to welcome</a>
+  </div></div>
+</section>
+{% endblock %}

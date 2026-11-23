@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}{{ course.name }} · Lesson {{ page }}{% endblock %}
+{% block content %}
+<section class="page-shell lesson-shell">
+  <a class="back-link" href="{{ url_for('dashboard') }}">← All learning paths</a>
+  <div class="lesson-top"><div><span class="eyebrow">{{ course.name|upper }} <span class="eyebrow-line"></span> LESSON {{ "%02d"|format(page) }}</span><h1>{{ title }}</h1></div><div class="lesson-timer"><span class="timer-dot"></span><div><span class="card-label">TIME IN THIS COURSE</span><strong data-language-time>{{ study|duration }}</strong></div></div></div>
+  <div class="lesson-progress"><div class="lesson-progress-label"><span>YOUR COURSE PROGRESS</span><span>LESSON {{ page }} OF {{ total_pages }}</span></div><div class="course-progress-line"><span style="width: {{ page / total_pages * 100 }}%"></span></div></div>
+  <article class="lesson-content"><div class="lesson-copy"><span class="lesson-kicker">THE ESSENTIALS</span><p>{{ content }}</p><section class="practice-card"><span class="lesson-kicker">PRACTICAL PROGRAM</span><h2>Try it yourself</h2><p>{{ practice }}</p></section></div><div class="code-card"><div class="code-head"><span class="code-dots"><i></i><i></i><i></i></span><span>SYNTAX &amp; EXAMPLE</span><span>{{ course.short }}</span></div><pre><code>{{ code }}</code></pre></div></article>
+  <div class="lesson-footer"><span class="lesson-reminder">{% if passed %}<span class="status-pill status-done">COURSE COMPLETE</span>{% elif can_quiz %}<span class="status-pill status-ready">QUIZ UNLOCKED</span> You have studied for 5 minutes.{% else %}Study for 5 minutes to unlock the 10-question quiz.{% endif %}</span><div class="lesson-actions">{% if page > 1 %}<a class="button button-outline" href="{{ url_for('lesson', language=language, page=page-1) }}">Previous</a>{% endif %}{% if page < total_pages %}<a class="button button-dark" href="{{ url_for('lesson', language=language, page=page+1) }}">Next lesson <span aria-hidden="true">→</span></a>{% elif can_quiz %}<a class="button button-dark" href="{{ url_for('quiz', language=language) }}">Take the quiz <span aria-hidden="true">↗</span></a>{% else %}<button class="button button-dark button-disabled" disabled>Quiz locked · 5 min required</button>{% endif %}</div></div>
+  {% if can_quiz and page < total_pages %}<a class="text-link lesson-quiz-link" href="{{ url_for('quiz', language=language) }}">Ready? Take the {{ course.short }} quiz →</a>{% endif %}
+</section>
+{% endblock %}

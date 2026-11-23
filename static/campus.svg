@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 450" role="img" aria-labelledby="title description">
+  <title id="title">Muthayammal Engineering College</title>
+  <desc id="description">A warm illustration of a college building with trees and a garden path.</desc>
+  <rect width="500" height="450" fill="#dce8dd"/>
+  <circle cx="382" cy="96" r="52" fill="#e9bd7a"/>
+  <path d="M0 278c82-57 145-31 215-3s145 18 285-41v216H0z" fill="#c5d8c6"/>
+  <path d="M0 329c89-40 155-22 246 0s173 15 254-15v136H0z" fill="#afc7b1"/>
+  <path d="M188 361l43-116h38l46 116 38 89H146z" fill="#d8c8a9"/>
+  <path d="M91 166h319v187H91z" fill="#f1ead8"/>
+  <path d="M77 164l174-95 174 95z" fill="#b76e4c"/>
+  <path d="M96 165l155-84 155 84z" fill="#cf8961"/>
+  <path d="M123 186h256v143H123z" fill="#e8dcc5"/>
+  <path d="M107 183h287v14H107z" fill="#a96c50"/>
+  <path d="M130 208h39v49h-39zM191 208h39v49h-39zM273 208h39v49h-39zM334 208h39v49h-39z" fill="#78928a"/>
+  <path d="M136 214h27v34h-27zM197 214h27v34h-27zM279 214h27v34h-27zM340 214h27v34h-27z" fill="#c8ddd1"/>
+  <path d="M238 250h27v79h-27z" fill="#b76e4c"/>
+  <path d="M223 247h57v10h-57z" fill="#a96046"/>
+  <path d="M115 269h32v60h-32zM349 269h32v60h-32z" fill="#d4c3a6"/>
+  <path d="M87 332h328v17H87z" fill="#b97654"/>
+  <path d="M157 111h188v31H157z" fill="#254f40"/>
+  <text x="251" y="124" text-anchor="middle" fill="#f6f1e7" font-family="Arial,sans-serif" font-size="8" font-weight="700" letter-spacing="1.5">MUTHAYAMMAL</text>
+  <text x="251" y="135" text-anchor="middle" fill="#d7e4d7" font-family="Arial,sans-serif" font-size="6" letter-spacing="1.2">ENGINEERING COLLEGE</text>
+  <path d="M67 347h28v40H67zM404 344h31v46h-31z" fill="#a8bd9f"/>
+  <circle cx="80" cy="333" r="34" fill="#6c8e70"/>
+  <circle cx="58" cy="343" r="22" fill="#789a79"/>
+  <circle cx="425" cy="330" r="38" fill="#69886b"/>
+  <circle cx="448" cy="346" r="23" fill="#7e9c78"/>
+  <path d="M0 385c78-22 137-12 202 3s170 12 298-14v76H0z" fill="#91ae91"/>
+  <path d="M221 450l25-103h14l32 103z" fill="#e8d8ba" opacity=".8"/>
+  <circle cx="97" cy="94" r="3" fill="#78977b"/>
+  <circle cx="430" cy="165" r="3" fill="#78977b"/>
+  <circle cx="64" cy="156" r="2" fill="#78977b"/>
+</svg>
